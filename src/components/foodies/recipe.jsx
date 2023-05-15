@@ -1,0 +1,45 @@
+import React, { useEffect, useState } from 'react'
+
+const Recipe = ({ meal }) => {
+    const [state, setState] = useState({});
+    const tmp = async () => {
+        console.log(state);
+        let temp = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`)
+        temp = await temp.json();
+        temp = temp.meals[0]
+        console.log(temp);
+        const url = temp.strYoutube; console.log(url, typeof url);
+        const id = (url) ? url.split("?v=")[1] : ''; console.log(id);
+        const v = "https://www.youtube.com/embed/" + id;
+        setState({
+            ...temp,
+            strYoutube: v
+        });
+    }
+    useEffect(() => {
+        tmp();
+    }, [])
+    return (
+        <section className="flex justify-center bg-black py-1">
+            <div className="h-fit space-y-6 sm:space-y-8 px-5 sm:px-12 bg-white w-screen sm:w-[50rem] rounded-lg shadow-xl py-6 sm:py-8">
+                {/* <div id="rname" className="text-center text-3xl h-fit font-semibold sm:text-5xl">{state.strMeal}</div> */}
+                <div className="font-['Freestyle_Script'] text-2xl text-center sm:text-3xl">" Good food is the foundation of genuine happiness"</div>
+                <div className="flex justify-center">
+                    <img src={state.strMealThumb} alt="" id="bg" className="rounded" />
+                </div>
+                <div className="space-y-3">
+                    <div className="text-2xl font-semibold sm:text-3xl text-center">Instructions</div>
+                    <div id="rec">{state.strInstructions}</div>
+                </div>
+                <div id="you" className="space-y-6">
+                    <div className="text-2xl font-semibold sm:text-3xl text-center">Tutorial</div>
+                    <div className="flex justify-center">
+                        <iframe id="myIframe" width="560" height="315" frameBorder="0" src={state.strYoutube} allowFullScreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
+
+export default Recipe
