@@ -1,5 +1,6 @@
 {
   "name": "my-app",
+  "homepage": "https://Sandeep5521.github.io/Foodies",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
