@@ -70,7 +70,7 @@ const Main = ({ Type }) => {
     return (
         <>
             <div className="z-10 h-12 md:h-fit bg-black text-white fixed backdrop-blur w-screen bg-opacity-50">
-                <Drawer />
+                <Drawer parent={view} />
                 <nav className="flex justify-center">
                     <div className="flex justify-between items-center">
                         <div className="text-4xl flex items-center px-5">
