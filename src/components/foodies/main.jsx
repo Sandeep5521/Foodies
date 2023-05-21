@@ -93,7 +93,7 @@ const Main = ({ Type }) => {
             </div>
             <Body />
             <Set />
-            <Footer />
+            <Footer parent={view} />
         </>
     )
 };
