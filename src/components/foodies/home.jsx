@@ -29,11 +29,11 @@ const Home = ({ parent }) => {
     }, 4000);
 
     return (
-        <>
+        <div className='bg-gray-100'>
             <section className="w-full flex justify-center">
                 <a href="#" className="hover:scale-105" id="link">
                     <div
-                        className="w-80 md:w-[30rem] h-fit bg-white shadow-xl -my-14 space-y-3 rounded-xl md:flex md:px-5 md:space-x-3" id='rand'>
+                        className="w-80 md:w-[30rem] h-fit bg-white shadow-xl -my-10 sm:-my-14 space-y-3 rounded-xl md:flex md:px-5 md:space-x-3" id='rand'>
                         <div className="px-5 py-5 sm:px-0 sm:py-0 flex items-center"><img src="" alt="" id="img"
                             className="rounded-full border-4 border-black" /></div>
                         <div className="space-y-2 py-2">
@@ -114,11 +114,11 @@ const Home = ({ parent }) => {
                     </div>
                 </div>
             </section>
-            <div className="mt-[28rem] mb-10 h-12 md:mt-0 flex justify-center text-2xl"><div href="#" className="bg-red-600 rounded-full text-white px-5 py-2 hover:scale-105" onClick={() => parent({
+            <div className="mt-[28rem] h-12 md:mt-0 flex justify-center text-2xl"><div href="#" className="bg-red-600 rounded-full text-white px-5 py-2 hover:scale-105" onClick={() => parent({
                 type: 'Categories',
                 title: 'Categories'
             })}><NavLink to={'/category'}>view more</NavLink></div></div>
-        </>
+        </div>
     )
 }
 

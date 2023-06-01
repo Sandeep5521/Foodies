@@ -1,171 +1,134 @@
-const Nav = () => {
-  const func = () => {
-    const menu = document.getElementById("mobile-menu");
-    const bars = document.getElementById("menu");
-    const close = document.getElementById("close");
-    if (menu.style.display == "none") {
-      menu.style.display = "block";
-      bars.style.display = "none";
-      close.style.display = "block";
-    } else {
-      menu.style.display = "none";
-      bars.style.display = "block";
-      close.style.display = "none";
-    }
-  };
-  return (
-    <nav className="bg-gray-800 shadow backdrop-blur fixed w-screen bg-opacity-50">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
-          <div
-            className="absolute inset-y-0 left-0 flex items-center sm:hidden"
-            onClick={func}
-          >
-            <button
-              type="button"
-              className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-              aria-controls="mobile-menu"
-              aria-expanded="false"
-            >
-              <span className="sr-only">Open main menu</span>
-              <svg
-                className="block h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
-                id="menu"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              </svg>
-              <svg
-                className="hidden h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
-                id="close"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex flex-shrink-0 items-center">
-              <img
-                className="block h-8 w-auto lg:hidden"
-                src="https://cdn-icons-png.flaticon.com/512/4801/4801005.png"
-                alt="Your Company"
-              />
-              <img
-                className="hidden h-8 w-auto lg:block"
-                src="https://cdn-icons-png.flaticon.com/512/4801/4801005.png"
-                alt="Your Company"
-              />
-            </div>
-            <div className="hidden sm:ml-6 sm:block">
-              <div className="flex space-x-4">
-                {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-                <a
-                  href="#"
-                  className="bg-red-500 font-semibold text-white rounded-md px-3 py-2 text-sm"
-                  aria-current="page"
-                >
-                  Home
-                </a>
+import { useState, useEffect } from "react";
+import {
+  Navbar,
+  Collapse,
+  Typography,
+  Button,
+  IconButton
+} from "@material-tailwind/react";
+import { NavLink } from "react-router-dom";
 
-                <a
-                  href="#"
-                  className="text-white hover:bg-red-400 hover:text-white rounded-md px-3 py-2 text-sm font-semibold"
-                >
-                  Categories
-                </a>
+export default function Example({ parent }) {
+  const [openNav, setOpenNav] = useState(false);
 
-                <a
-                  href="#"
-                  className="text-white hover:bg-red-400 hover:text-white rounded-md px-3 py-2 text-sm font-semibold"
-                >
-                  Search
-                </a>
+  useEffect(() => {
+    window.addEventListener(
+      "resize",
+      () => window.innerWidth >= 960 && setOpenNav(false)
+    );
+  }, []);
 
-                <a
-                  href="#"
-                  className="text-white hover:bg-red-400 hover:text-white rounded-md px-3 py-2 text-sm font-semibold"
-                >
-                  Calendar
-                </a>
-              </div>
-            </div>
-          </div>
-          {/* <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <button
-              type="button"
-              className="rounded-full bg-red-500 p-1 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-            >
-              <span className="sr-only">View notifications</span>
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
-                />
-              </svg>
-            </button>
-          </div> */}
-        </div>
-      </div>
-
-      <div className="hidden" id="mobile-menu">
-        <div className="space-y-1 px-2 pb-3 pt-2">
-          <a
-            href="#"
-            className="bg-red-500 text-white block rounded-md px-3 py-2 text-base font-medium"
-            aria-current="page"
-          >
-            Dashboard
-          </a>
-
-          <a
-            href="#"
-            className="text-white hover:bg-red-400 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-          >
-            Team
-          </a>
-
-          <a
-            href="#"
-            className="text-white hover:bg-red-400 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-          >
-            Projects
-          </a>
-
-          <a
-            href="#"
-            className="text-white hover:bg-red-400 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-          >
-            Calendar
-          </a>
-        </div>
-      </div>
-    </nav>
+  const navList = (
+    <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-normal"
+      >
+        <NavLink to={'/'} className={({ isActive }) =>
+          isActive ? "flex items-center text-red-500" : "flex items-center"
+        } onClick={() => parent('Home')}>Home</NavLink>
+      </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-normal"
+      >
+        <NavLink to={'/category'} className={({ isActive }) =>
+          isActive ? "flex items-center text-red-500" : "flex items-center"
+        } onClick={() => parent('Categories')}>Categories</NavLink>
+      </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-normal"
+      >
+        <NavLink to={'/search'} className={({ isActive }) =>
+          isActive ? "flex items-center text-red-500" : "flex items-center"
+        } onClick={() => parent('Search')}>Search</NavLink>
+      </Typography>
+      {/* <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-normal"
+      >
+        <a href="#" className="flex items-center">
+          Docs
+        </a>
+      </Typography> */}
+    </ul>
   );
-};
 
-export default Nav;
+  return (
+    <>
+      <Navbar className="sticky backdrop-blur-2xl bg-white bg-opacity-70 text-black inset-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
+        <div className="flex items-center justify-between text-blue-gray-900">
+          <Typography
+            as="a"
+            href="#"
+            className="mr-4 cursor-pointer py-1.5 font-semibold text-3xl text-red-500"
+          >
+            Foodies
+          </Typography>
+          <div className="flex items-center gap-4">
+            <div className="mr-4 hidden lg:block">{navList}</div>
+            <Button
+              variant="gradient"
+              size="sm"
+              className="hidden bg-red-400 lg:inline-block"
+            >
+              <span>Sign in</span>
+            </Button>
+            <IconButton
+              variant="text"
+              className="h-6 w-6 text-inherit static hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+              ripple={false}
+              onClick={() => setOpenNav(!openNav)}
+            >
+              {openNav ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  className="h-6 w-6 absolute top-[-0.8rem] left-[-0.8rem]"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 absolute top-[-0.8rem] left-[-0.8rem]"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              )}
+            </IconButton>
+          </div>
+        </div>
+        <Collapse open={openNav}>
+          {navList}
+          <Button variant="gradient" size="sm" fullWidth className="mb-2 bg-red-400">
+            <span>Sign in</span>
+          </Button>
+        </Collapse>
+      </Navbar>
+    </>
+  );
+}

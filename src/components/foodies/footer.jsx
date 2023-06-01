@@ -4,11 +4,11 @@ const Footer = ({ parent }) => {
     return (
         <footer aria-label="Site Footer" className="bg-gray-100">
             <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-                <div className="flex justify-center text-5xl text-teal-600">
+                <div className="flex justify-center font-semibold text-5xl text-red-500">
                     Foodies
                 </div>
 
-                <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500">
+                <p className="mx-auto selection:bg-red-300 selection:text-black mt-6 max-w-md text-center leading-relaxed text-gray-500">
                     Discover new flavors and culinary delights with our extensive collection of recipes, cooking tips, and food-related articles. Join our community of food lovers today!
                 </p>
 

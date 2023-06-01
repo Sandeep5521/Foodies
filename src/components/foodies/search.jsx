@@ -17,8 +17,8 @@ const Search = ({ parent }) => {
         tmp();
     }, [ing])
     const Comp = () => {
-        return <div className="space-y-3 sm:py-10 px-7 bg-orange-100 h-[35rem] xl:h-[34rem]  sm:text-white sm:bg-transparent">
-            <div>
+        return <div className="space-y-3 sm:py-10 px-7 h-[35rem] sm:text-white sm:bg-transparent">
+            <div className='text-white'>
                 <div className="sm:flex sm:justify-center">
                     <div className={"bg-cover sm:w-60 xl:w-64 h-64"} style={{ backgroundImage: `url('${logo}')` }}></div>
                 </div>
