@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import {
   Navbar,
-  Collapse,
+  MobileNav,
   Typography,
   Button,
   IconButton
@@ -122,12 +122,12 @@ export default function Example({ parent }) {
             </IconButton>
           </div>
         </div>
-        <Collapse open={openNav}>
+        <MobileNav open={openNav}>
           {navList}
           <Button variant="gradient" size="sm" fullWidth className="mb-2 bg-red-400">
             <span>Sign in</span>
           </Button>
-        </Collapse>
+        </MobileNav>
       </Navbar>
     </>
   );
