@@ -37,7 +37,9 @@ const Main = ({ Type }) => {
                 </div>
             </div>
         )
-        return <div className='sm:text-7xl text-4xl text-white text-center'>{page.title}</div>
+        return <div className="text-white bg-opacity-20 w-screen bg-black h-60 sm:h-[30rem] flex items-center justify-center">
+            <div className='sm:text-7xl text-4xl text-white text-center'>{page.title}</div>
+        </div>
     }
 
     const Set = () => {
