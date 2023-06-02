@@ -1,24 +1,24 @@
-import { useEffect, useState } from 'react'
+import { useQuery } from '@tanstack/react-query';
+import { Spinner } from "@material-tailwind/react";
 
 const Sub = ({ parent, title }) => {
-    const [link, setLink] = useState({
-        key: `https://www.themealdb.com/api/json/v1/1/filter.php?c=${title}`,
-        title: 'Categories',
-    })
-    const [list, setList] = useState([])
-    async function tmp() {
-        let temp = await fetch(link.key);
-        temp = await temp.json();
-        setList(temp.meals)
-        console.log(list);
-    }
 
-    useEffect(() => {
-        tmp();
-    }, [link])
+    const { isLoading, error, data } = useQuery({
+        queryKey: ['repoData'],
+        queryFn: async () => {
+            let temp = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${title}`);
+            temp = await temp.json();
+            return temp
+        }
+    })
+
+    if (isLoading) return <div className='h-96 flex items-center justify-center'><Spinner color='red' className="h-20 w-20" /></div>
+
+    if (error) return 'An error has occurred: ' + error.message
 
     const Comp = () => {
-        return list.map((cur) => {
+        if (!data.meals) return <></>
+        return data.meals.map((cur) => {
             return <div key={cur.idMeal} className="w-fit bg-white rounded shadow-xl hover:scale-110 h-fit flex justify-center">
                 <div className="space-y-2 cursor-pointer" onClick={() => parent({
                     type: 'Product',

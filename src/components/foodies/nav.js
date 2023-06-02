@@ -28,7 +28,10 @@ export default function Example({ parent }) {
       >
         <NavLink to={'/'} className={({ isActive }) =>
           isActive ? "flex items-center text-red-500" : "flex items-center"
-        } onClick={() => parent('Home')}>Home</NavLink>
+        } onClick={() => {
+          if (openNav) setOpenNav(!openNav)
+          parent('Home')
+        }}>Home</NavLink>
       </Typography>
       <Typography
         as="li"
@@ -38,7 +41,10 @@ export default function Example({ parent }) {
       >
         <NavLink to={'/category'} className={({ isActive }) =>
           isActive ? "flex items-center text-red-500" : "flex items-center"
-        } onClick={() => parent('Categories')}>Categories</NavLink>
+        } onClick={() => {
+          if (openNav) setOpenNav(!openNav)
+          parent('Categories')
+        }}>Categories</NavLink>
       </Typography>
       <Typography
         as="li"
@@ -48,7 +54,10 @@ export default function Example({ parent }) {
       >
         <NavLink to={'/search'} className={({ isActive }) =>
           isActive ? "flex items-center text-red-500" : "flex items-center"
-        } onClick={() => parent('Search')}>Search</NavLink>
+        } onClick={() => {
+          if (openNav) setOpenNav(!openNav)
+          parent('Search')
+        }}>Search</NavLink>
       </Typography>
       {/* <Typography
         as="li"
@@ -66,11 +75,9 @@ export default function Example({ parent }) {
   return (
     <>
       <Navbar className="sticky backdrop-blur-2xl bg-white bg-opacity-70 text-black inset-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
-        <div className="flex items-center justify-between text-blue-gray-900">
+        <div className="flex items-center mt-[0.6rem] md:mt-0 justify-between text-blue-gray-900">
           <Typography
-            as="a"
-            href="#"
-            className="mr-4 cursor-pointer py-1.5 font-semibold text-3xl text-red-500"
+            className="mr-4 cursor-pointer py-1.5 font-semibold text-2xl md:text-3xl text-red-500" onClick={() => parent('Home')}
           >
             Foodies
           </Typography>

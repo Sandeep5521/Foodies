@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 const Home = ({ parent }) => {
     useEffect(() => {
         let add = document.getElementById('add')
@@ -31,7 +31,7 @@ const Home = ({ parent }) => {
     return (
         <div className='bg-gray-100'>
             <section className="w-full flex justify-center">
-                <a href="#" className="hover:scale-105" id="link">
+                <span className="hover:scale-105 cursor-pointer" id="link">
                     <div
                         className="w-80 md:w-[30rem] h-fit bg-white shadow-xl -my-10 sm:-my-14 space-y-3 rounded-xl md:flex md:px-5 md:space-x-3" id='rand'>
                         <div className="px-5 py-5 sm:px-0 sm:py-0 flex items-center"><img src="" alt="" id="img"
@@ -43,7 +43,7 @@ const Home = ({ parent }) => {
                                 topped with imported, premium quality mozzarella.</div>
                         </div>
                     </div>
-                </a>
+                </span>
             </section>
             <section className="h-fit w-full mt-28 space-y-10">
                 <div id='bg' className={"h-60 sm:h-96 bg-cover"}></div >
