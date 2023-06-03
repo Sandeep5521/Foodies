@@ -24,7 +24,7 @@ export default function Example({ parent }) {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 font-normal hover:text-red-400"
       >
         <NavLink to={'/'} className={({ isActive }) =>
           isActive ? "flex items-center text-red-500" : "flex items-center"
@@ -37,7 +37,7 @@ export default function Example({ parent }) {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 font-normal hover:text-red-400"
       >
         <NavLink to={'/category'} className={({ isActive }) =>
           isActive ? "flex items-center text-red-500" : "flex items-center"
@@ -50,7 +50,7 @@ export default function Example({ parent }) {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal"
+        className="p-1 font-normal hover:text-red-400"
       >
         <NavLink to={'/search'} className={({ isActive }) =>
           isActive ? "flex items-center text-red-500" : "flex items-center"
@@ -79,7 +79,7 @@ export default function Example({ parent }) {
           <Typography
             className="mr-4 cursor-pointer py-1.5 font-semibold text-2xl md:text-3xl text-red-500" onClick={() => parent('Home')}
           >
-            Foodies
+            <NavLink to={'/'}><div className="flex place-content-center space-x-1"><img src="icons8-cookie-96.png" className="h-6 my-1 md:h-8" /><span>Foodies</span></div></NavLink>
           </Typography>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>

@@ -17,10 +17,10 @@ const Search = ({ parent }) => {
         tmp();
     }, [ing])
     const Comp = () => {
-        return <div className="space-y-3 sm:py-10 px-7 h-[35rem] sm:text-white sm:bg-transparent">
+        return <div className="space-y-3 sm:space-y-6 sm:py-10 px-7 h-[35rem] sm:text-white sm:bg-transparent">
             <div className='text-white'>
                 <div className="sm:flex sm:justify-center">
-                    <div className={"bg-cover sm:w-60 xl:w-64 h-64"} style={{ backgroundImage: `url('${logo}')` }}></div>
+                    <div className={"bg-cover sm:w-80 lg:h-64 h-48 mt-24 sm:mt-0"} style={{ backgroundImage: `url('${logo}')` }}></div>
                 </div>
                 <div className="text-center text-4xl md:text-6xl font-['Brush_Script_MT']">Search by ingrediant</div>
             </div>
