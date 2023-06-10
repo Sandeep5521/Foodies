@@ -141,7 +141,7 @@ export default function Example({ parent }) {
         </div>
         <MobileNav open={openNav}>
           {navList}
-          <Button variant="gradient" size="sm" fullWidth className="mb-2 bg-red-400">
+          <Button variant="gradient" size="sm" fullWidth className="mb-2 bg-red-400" onClick={handleOpen}>
             <span>Sign in</span>
           </Button>
         </MobileNav>
