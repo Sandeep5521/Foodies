@@ -17,8 +17,8 @@ import { NavLink } from "react-router-dom";
 
 export default function Example({ parent }) {
   const [openNav, setOpenNav] = useState(false);
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen((cur) => !cur);
+  // const [open, setOpen] = useState(false);
+  // const handleOpen = () => setOpen((cur) => !cur);
 
   useEffect(() => {
     window.addEventListener(
@@ -146,7 +146,7 @@ export default function Example({ parent }) {
           </Button>
         </MobileNav>
       </Navbar>
-      <Dialog
+      {/* <Dialog
         size="xs"
         open={open}
         handler={handleOpen}
@@ -188,7 +188,7 @@ export default function Example({ parent }) {
             </Typography>
           </CardFooter>
         </Card>
-      </Dialog>
+      </Dialog> */}
     </>
   );
 }
