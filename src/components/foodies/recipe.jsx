@@ -41,8 +41,17 @@ const Recipe = ({ meal }) => {
             }
             f++;
         }
+        f = 0;
         return li.map((cur) => {
-            return <div class="h-10 bg-gray-200 text-lg py-1 font-medium text-center text-gray-800">{cur}</div>
+            if (f === 0) {
+                ch = 'bg-gray-200';
+                f++;
+            }
+            else {
+                ch = 'bg-gray-100'
+                f--;
+            }
+            return <div className={`h-10 ${ch} text-lg py-1 font-medium text-center text-gray-800`}>{cur}</div>
         })
     }
     return (

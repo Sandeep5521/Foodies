@@ -1,5 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { Spinner } from "@material-tailwind/react";
+import {
+    Card,
+    CardHeader,
+    CardBody,
+    Typography
+} from "@material-tailwind/react";
 
 const Category = ({ parent }) => {
     const { isLoading, error, data } = useQuery({
@@ -18,15 +24,28 @@ const Category = ({ parent }) => {
     const Comp = () => {
         if (!data.categories) return <></>
         return data.categories.map((cur) => {
-            return <div key={cur.idCategory} className="w-fit hover:scale-110 h-fit flex justify-center">
-                <div className="space-y-2 cursor-pointer" onClick={() => parent({
-                    type: 'Sub',
-                    title: cur.strCategory
-                })}>
-                    <div className="w-60"><img src={cur.strCategoryThumb} alt="" className='rounded-full' /></div>
-                    <div className="w-60 text-2xl text-center py-4">{cur.strCategory}</div>
-                </div>
-            </div>
+            return <Card key={cur.idCategory} className="mt-6 w-[90%] p-4 hover:scale-105 cursor-pointer" onClick={() => parent({
+                type: 'Sub',
+                title: cur.strCategory
+            })}>
+                <CardHeader color="blue-gray" className="relative h-52 -my-10">
+                    <img className="rounded-xl" src={cur.strCategoryThumb} alt="img-blur-shadow" layout="fill" />
+                </CardHeader>
+                <CardBody className="pt-4 text-center">
+                    <Typography variant="h5" color="blue-gray" className="mb-2">
+                        {cur.strCategory}
+                    </Typography>
+                </CardBody>
+            </Card >
+            // return <div key={cur.idCategory} className="w-fit bg-white hover:scale-110 h-fit flex justify-center">
+            //     <div className="space-y-2 cursor-pointer" onClick={() => parent({
+            //         type: 'Sub',
+            //         title: cur.strCategory
+            //     })}>
+            //         <div className="w-60"><img src={cur.strCategoryThumb} alt="" className='rounded-full' /></div>
+            //         <div className="w-60 text-2xl text-center py-4">{cur.strCategory}</div>
+            //     </div>
+            // </div>
         })
     }
 
