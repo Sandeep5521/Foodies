@@ -5,20 +5,11 @@ import {
   Typography,
   Button,
   IconButton,
-  Dialog,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Input,
-  Checkbox,
 } from "@material-tailwind/react";
 import { NavLink } from "react-router-dom";
 
 export default function Example({ parent }) {
   const [openNav, setOpenNav] = useState(false);
-  // const [open, setOpen] = useState(false);
-  // const handleOpen = () => setOpen((cur) => !cur);
 
   useEffect(() => {
     window.addEventListener(
@@ -83,7 +74,7 @@ export default function Example({ parent }) {
 
   return (
     <>
-      <Navbar className="sticky backdrop-blur-2xl bg-white bg-opacity-70 text-black inset-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
+      <Navbar className={`sticky backdrop-blur-2xl bg-white bg-opacity-70 text-black inset-0 z-10 ${(openNav) ? 'h-[15rem]' : 'h-max'} max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4`}>
         <div className="flex items-center mt-[0.6rem] md:mt-0 justify-between text-blue-gray-900">
           <Typography
             className="mr-4 cursor-pointer py-1.5 font-semibold text-2xl md:text-3xl text-red-500" onClick={() => parent('Home')}
@@ -96,13 +87,12 @@ export default function Example({ parent }) {
               variant="gradient"
               size="sm"
               className="hidden bg-red-400 lg:inline-block"
-              onClick={handleOpen}
             >
               <span>Sign in</span>
             </Button>
             <IconButton
               variant="text"
-              className="h-6 w-6 text-inherit static hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+              className="h-6 w-6 text-inherit static hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden [&>*]:static"
               ripple={false}
               onClick={() => setOpenNav(!openNav)}
             >
@@ -110,7 +100,7 @@ export default function Example({ parent }) {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
-                  className="h-6 w-6 absolute top-[-0.8rem] left-[-0.8rem]"
+                  className="h-6 w-6"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   strokeWidth={2}
@@ -124,7 +114,7 @@ export default function Example({ parent }) {
               ) : (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 absolute top-[-0.8rem] left-[-0.8rem]"
+                  className="h-6 w-6"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth={2}
@@ -139,56 +129,13 @@ export default function Example({ parent }) {
             </IconButton>
           </div>
         </div>
-        <MobileNav open={openNav}>
+        <MobileNav open={openNav} className={`${(openNav) ? 'block' : 'hidden'}`}>
           {navList}
-          <Button variant="gradient" size="sm" fullWidth className="mb-2 bg-red-400" onClick={handleOpen}>
+          <Button variant="gradient" size="sm" fullWidth className="mb-2 bg-red-400">
             <span>Sign in</span>
           </Button>
         </MobileNav>
       </Navbar>
-      {/* <Dialog
-        size="xs"
-        open={open}
-        handler={handleOpen}
-        className="bg-transparent shadow-none"
-      >
-        <Card className="mx-auto w-full max-w-[24rem]">
-          <CardHeader
-            variant="gradient"
-            color="blue"
-            className="mb-4 grid h-28 place-items-center"
-          >
-            <Typography variant="h3" color="white">
-              Sign In
-            </Typography>
-          </CardHeader>
-          <CardBody className="flex flex-col gap-4">
-            <Input label="Email" size="lg" />
-            <Input label="Password" size="lg" />
-            <div className="-ml-2.5">
-              <Checkbox label="Remember Me" />
-            </div>
-          </CardBody>
-          <CardFooter className="pt-0">
-            <Button variant="gradient" onClick={handleOpen} fullWidth>
-              Sign In
-            </Button>
-            <Typography variant="small" className="mt-6 flex justify-center">
-              Don&apos;t have an account?
-              <Typography
-                as="a"
-                href="#signup"
-                variant="small"
-                color="blue"
-                className="ml-1 font-bold"
-                onClick={handleOpen}
-              >
-                Sign up
-              </Typography>
-            </Typography>
-          </CardFooter>
-        </Card>
-      </Dialog> */}
     </>
   );
 }

@@ -1,14 +1,18 @@
 import { useQuery } from '@tanstack/react-query';
 import { Spinner } from "@material-tailwind/react";
+import { useState } from 'react';
 import {
     Card,
     CardHeader,
     CardBody,
-    Typography
+    Typography,
+    IconButton
 } from "@material-tailwind/react";
+import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+
 
 const Sub = ({ parent, title }) => {
-
+    const [active, setActive] = useState(1);
     const { isLoading, error, data } = useQuery({
         queryKey: ['repoData'],
         queryFn: async () => {
@@ -19,13 +23,28 @@ const Sub = ({ parent, title }) => {
     })
 
     if (isLoading) return <div className='h-96 flex items-center justify-center'><Spinner color='red' className="h-20 w-20" /></div>
+    if (error) return <></>
 
-    if (error) return 'An error has occurred: ' + error.message
+    const next = () => {
+        console.log('next');
+        if (active === Math.ceil(data.meals.length / 12)) return;
+        setActive(active + 1);
+    };
+
+    const prev = () => {
+        console.log('prev');
+        if (active === 1) return;
+        setActive(active - 1);
+    };
 
     const Comp = () => {
         if (!data.meals) return <></>
-        return data.meals.map((cur) => {
-            return <Card key={cur.idMeal} className="mt-6 h-80 w-[90%] p-4 hover:scale-105 cursor-pointer" onClick={() => parent({
+        let list = data.meals;
+        console.log(data);
+        if (active * 12 > data.length) list = list.slice((active - 1) * 12, data.length)
+        else list = list.slice((active - 1) * 12, active * 12)
+        return list.map((cur) => {
+            return <Card key={cur.idMeal} className="mt-6 h-fit w-[90%] p-4 hover:scale-105 cursor-pointer" onClick={() => parent({
                 type: 'Product',
                 title: cur.strMeal
             })}>
@@ -51,9 +70,37 @@ const Sub = ({ parent, title }) => {
     }
 
     return (
-        <div className="h-fit bg-gray-100 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0  place-items-center py-10 md:gap-y-10">
-            <Comp />
-        </div>
+        <>
+            <div className="h-fit bg-gray-100 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0  place-items-center py-10 md:gap-y-10">
+                <Comp />
+            </div>
+            <div className="flex bg-gray-100 text-lg items-center place-content-center gap-8">
+                <IconButton
+                    size="sm"
+                    variant="outlined"
+                    color="blue-gray"
+                    className='border border-red-500 hover:outline-none hover:bg-red-500 hover:text-white'
+                    onClick={prev}
+                    disabled={active === 1}
+                >
+                    <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" />
+                </IconButton>
+                <Typography color="gray" className="font-normal">
+                    Page <strong className="text-blue-gray-900">{active}</strong> of{" "}
+                    <strong className="text-blue-gray-900">{(data.meals) ? Math.ceil(data.meals.length / 12) : ''}</strong>
+                </Typography>
+                <IconButton
+                    size="sm"
+                    variant="outlined"
+                    color="blue-gray"
+                    className='border border-red-500 hover:outline-none hover:bg-red-500 hover:text-white'
+                    onClick={next}
+                    disabled={active === 10}
+                >
+                    <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
+                </IconButton>
+            </div>
+        </>
     )
 }
 
