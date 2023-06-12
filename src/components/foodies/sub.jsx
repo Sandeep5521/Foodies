@@ -71,10 +71,10 @@ const Sub = ({ parent, title }) => {
 
     return (
         <>
-            <div className="h-fit bg-gray-100 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0  place-items-center py-10 md:gap-y-10">
+            <div className="h-fit bg-gray-200 md:bg-gray-100 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0  place-items-center py-10 md:gap-y-10">
                 <Comp />
             </div>
-            <div className="flex bg-gray-100 text-lg items-center place-content-center gap-8">
+            <div className="flex bg-gray-200 md:bg-gray-100 text-lg items-center place-content-center gap-8">
                 <IconButton
                     size="sm"
                     variant="outlined"

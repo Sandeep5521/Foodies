@@ -29,7 +29,7 @@ const Home = ({ parent }) => {
     }, 4000);
 
     return (
-        <div className='bg-gray-100'>
+        <div className='bg-gray-200 md:bg-gray-100'>
             <section className="w-full flex justify-center">
                 <span className="hover:scale-105 cursor-pointer" id="link">
                     <div
