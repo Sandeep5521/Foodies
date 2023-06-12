@@ -74,7 +74,7 @@ export default function Example({ parent }) {
 
   return (
     <>
-      <Navbar className={`sticky backdrop-blur-2xl bg-white bg-opacity-70 text-black inset-0 z-10 ${(openNav) ? 'h-[15rem]' : 'h-max'} max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4`}>
+      <Navbar className={`sticky backdrop-blur-2xl bg-white bg-opacity-70 text-black inset-0 z-10 ${(openNav) ? 'h-[16rem]' : 'h-max'} max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4`}>
         <div className="flex items-center mt-[0.6rem] md:mt-0 justify-between text-blue-gray-900">
           <Typography
             className="mr-4 cursor-pointer py-1.5 font-semibold text-2xl md:text-3xl text-red-500" onClick={() => parent('Home')}
