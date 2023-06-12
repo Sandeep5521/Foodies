@@ -61,7 +61,7 @@ const Search = ({ parent }) => {
     }
 
     const Body = () => {
-        if (!list) return <div className='text-3xl bg-gray-200 md:bg-gray-100 text-center py-10'>No search Results for "{ing}"</div>
+        if (!list) return <div className='h-96 bg-center my-5' style={{ backgroundImage: `url('https://cdn.dribbble.com/users/1135689/screenshots/3957784/media/2957ab45daa7143409a927df0cb2e87a.png')` }}></div>
         let li = list;
         if (active * 12 > list.length) li = list.slice((active - 1) * 12, list.length)
         else li = list.slice((active - 1) * 12, active * 12)
@@ -85,6 +85,32 @@ const Search = ({ parent }) => {
                         </Card >
                     })}
                 </div>
+                <div className="flex bg-gray-200 md:bg-gray-100 text-lg items-center place-content-center gap-8">
+                    <IconButton
+                        size="sm"
+                        variant="outlined"
+                        color="blue-gray"
+                        className='border border-red-500 hover:outline-none hover:bg-red-500 hover:text-white [&>*]:static px-2'
+                        onClick={prev}
+                        disabled={active === 1}
+                    >
+                        <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" />
+                    </IconButton>
+                    <Typography color="gray" className="font-normal">
+                        Page <strong className="text-blue-gray-900">{active}</strong> of{" "}
+                        <strong className="text-blue-gray-900">{(list) ? Math.ceil(list.length / 12) : ''}</strong>
+                    </Typography>
+                    <IconButton
+                        size="sm"
+                        variant="outlined"
+                        color="blue-gray"
+                        className='border border-red-500 hover:outline-none hover:bg-red-500 hover:text-white [&>*]:static px-2'
+                        onClick={next}
+                        disabled={active === 10}
+                    >
+                        <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
+                    </IconButton>
+                </div>
             </>
         )
     }
@@ -93,32 +119,6 @@ const Search = ({ parent }) => {
         <>
             <Banner Comp={Comp} />
             <Body />
-            <div className="flex bg-gray-200 md:bg-gray-100 text-lg items-center place-content-center gap-8">
-                <IconButton
-                    size="sm"
-                    variant="outlined"
-                    color="blue-gray"
-                    className='border border-red-500 hover:outline-none hover:bg-red-500 hover:text-white [&>*]:static px-2'
-                    onClick={prev}
-                    disabled={active === 1}
-                >
-                    <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" />
-                </IconButton>
-                <Typography color="gray" className="font-normal">
-                    Page <strong className="text-blue-gray-900">{active}</strong> of{" "}
-                    <strong className="text-blue-gray-900">{(list) ? Math.ceil(list.length / 12) : ''}</strong>
-                </Typography>
-                <IconButton
-                    size="sm"
-                    variant="outlined"
-                    color="blue-gray"
-                    className='border border-red-500 hover:outline-none hover:bg-red-500 hover:text-white [&>*]:static px-2'
-                    onClick={next}
-                    disabled={active === 10}
-                >
-                    <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
-                </IconButton>
-            </div>
         </>
     )
 }
