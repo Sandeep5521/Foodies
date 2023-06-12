@@ -79,7 +79,7 @@ const Sub = ({ parent, title }) => {
                     size="sm"
                     variant="outlined"
                     color="blue-gray"
-                    className='border border-red-500 hover:outline-none hover:bg-red-500 hover:text-white'
+                    className='border border-red-500 hover:outline-none hover:bg-red-500 hover:text-white [&>*]:static px-2'
                     onClick={prev}
                     disabled={active === 1}
                 >
@@ -93,7 +93,7 @@ const Sub = ({ parent, title }) => {
                     size="sm"
                     variant="outlined"
                     color="blue-gray"
-                    className='border border-red-500 hover:outline-none hover:bg-red-500 hover:text-white'
+                    className='border border-red-500 hover:outline-none hover:bg-red-500 hover:text-white [&>*]:static px-2'
                     onClick={next}
                     disabled={active === 10}
                 >
