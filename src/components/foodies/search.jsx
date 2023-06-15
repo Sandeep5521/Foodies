@@ -67,8 +67,8 @@ const Search = ({ parent }) => {
         else li = list.slice((active - 1) * 12, active * 12)
         return (
             <>
-                <div className='text-3xl bg-gray-100 text-center pt-10'>Search Results for "{ing}"</div>
-                <div className="h-fit bg-gray-100 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0  place-items-center py-10 md:gap-y-10">
+                <div className='text-3xl bg-gray-200 md:bg-gray-100 text-center pt-10'>Search Results for "{ing}"</div>
+                <div className="h-fit bg-gray-200 md:bg-gray-100 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0  place-items-center py-10 md:gap-y-10">
                     {li.map((cur) => {
                         return <Card key={cur.idMeal} className="mt-6 h-fit w-[90%] p-4 hover:scale-105 cursor-pointer" onClick={() => parent({
                             type: 'Product',
@@ -77,7 +77,7 @@ const Search = ({ parent }) => {
                             <CardHeader color="blue-gray" className="relative h-52 -my-10">
                                 <img className="rounded-xl shadow-xl" src={cur.strMealThumb} alt="img-blur-shadow" layout="fill" />
                             </CardHeader>
-                            <CardBody className="pt-[8.5rem] sm:pt-20 lg:pt-[7.5rem] text-center">
+                            <CardBody className="pt-[58%] text-center">
                                 <Typography variant="h5" color="blue-gray" className="mb-2">
                                     {cur.strMeal}
                                 </Typography>
@@ -85,7 +85,7 @@ const Search = ({ parent }) => {
                         </Card >
                     })}
                 </div>
-                <div className="flex bg-gray-200 md:bg-gray-100 text-lg items-center place-content-center gap-8">
+                <div className="pb-[2%] flex bg-gray-200 md:bg-gray-100 text-lg items-center place-content-center gap-8">
                     <IconButton
                         size="sm"
                         variant="outlined"
