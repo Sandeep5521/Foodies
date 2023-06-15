@@ -28,10 +28,10 @@ const Category = ({ parent }) => {
                 type: 'Sub',
                 title: cur.strCategory
             })}>
-                <CardHeader color="blue-gray" className="relative h-52 -my-10">
+                <CardHeader color="blue-gray" className="relative h-52 -my-10 flex justify-center">
                     <img className="rounded-xl" src={cur.strCategoryThumb} alt="img-blur-shadow" layout="fill" />
                 </CardHeader>
-                <CardBody className="pt-4 text-center">
+                <CardBody className="mt-[20%] text-center">
                     <Typography variant="h5" color="blue-gray" className="mb-2">
                         {cur.strCategory}
                     </Typography>

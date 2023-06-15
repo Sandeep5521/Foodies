@@ -51,7 +51,7 @@ const Sub = ({ parent, title }) => {
                 <CardHeader color="blue-gray" className="relative h-52 -my-10">
                     <img className="rounded-xl shadow-xl" src={cur.strMealThumb} alt="img-blur-shadow" layout="fill" />
                 </CardHeader>
-                <CardBody className="pt-[8.5rem] sm:pt-20 lg:pt-[7.5rem] text-center">
+                <CardBody className="pt-[58%] text-center">
                     <Typography variant="h5" color="blue-gray" className="mb-2">
                         {cur.strMeal}
                     </Typography>
@@ -74,7 +74,7 @@ const Sub = ({ parent, title }) => {
             <div className="h-fit bg-gray-200 md:bg-gray-100 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0  place-items-center py-10 md:gap-y-10">
                 <Comp />
             </div>
-            <div className="flex bg-gray-200 md:bg-gray-100 text-lg items-center place-content-center gap-8">
+            <div className="pb-[2%] flex bg-gray-200 md:bg-gray-100 text-lg items-center place-content-center gap-8">
                 <IconButton
                     size="sm"
                     variant="outlined"
