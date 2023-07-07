@@ -87,9 +87,12 @@ export default function Example({ parent }) {
               variant="gradient"
               size="sm"
               className="hidden bg-red-400 lg:inline-block"
-              onClick={() => parent('Login')}
+              onClick={() => {
+                if (openNav) setOpenNav(!openNav)
+                parent('Login');
+              }}
             >
-              <span>Sign in</span>
+              <span><NavLink to={'/login'}>Sign in</NavLink></span>
             </Button>
             <IconButton
               variant="text"
@@ -132,8 +135,11 @@ export default function Example({ parent }) {
         </div>
         <MobileNav open={openNav} className={`${(openNav) ? 'block' : 'hidden'}`}>
           {navList}
-          <Button variant="gradient" size="sm" fullWidth className="mb-2 bg-red-400" onClick={() => parent('Login')}>
-            <span>Sign in</span>
+          <Button variant="gradient" size="sm" fullWidth className="mb-2 bg-red-400" onClick={() => {
+            if (openNav) setOpenNav(!openNav)
+            parent('Login');
+          }}>
+            <span><NavLink to={'/login'}>Sign in</NavLink></span>
           </Button>
         </MobileNav>
       </Navbar>
