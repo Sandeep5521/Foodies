@@ -10,7 +10,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Login({ parent }) {
     return (
-        <div className="flex justify-center items-center h-fit bg-gray-200 py-10 pt-20 px-5">
+        <div className="flex justify-center items-center h-fit bg-gray-200 py-10 pt-28 px-5">
             <Card className="w-96 px-7">
                 <CardHeader
                     variant="gradient"
