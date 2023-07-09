@@ -17,6 +17,7 @@ const App = () => {
           <Route path='/category' element={<Main Type={'Categories'} />} />
           <Route path='/search' element={<Main Type={'Search'} />} />
           <Route path='/login' element={<Main Type={'Login'} />} />
+          <Route path='/register' element={<Main Type={'Register'} />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

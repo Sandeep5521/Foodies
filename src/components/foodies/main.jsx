@@ -8,6 +8,7 @@ import Sub from "./sub.jsx";
 import Recipe from "./recipe.jsx";
 import Home from "./home.jsx";
 import Login from "./login.jsx";
+import Register from "./register.jsx";
 
 const Main = ({ Type }) => {
     const [page, setPage] = useState({
@@ -50,12 +51,13 @@ const Main = ({ Type }) => {
             return <Search parent={func} />
         if (page.type === 'Sub') return <Sub parent={func} title={page.title} />
         if (page.type === 'Product') return <Recipe meal={page.title} />
-        if (page.title === 'Login') return <Login />
+        if (page.title === 'Login') return <Login parent={view} />
+        if (page.title === 'Register') return <Register parent={view} />
         return <Home parent={func} />
     }
 
     const Body = () => {
-        if (page.type !== 'Search' && page.type !== 'Login') return <Banner Comp={Bg} />
+        if (page.type !== 'Search' && page.type !== 'Login' && page.type !== 'Register') return <Banner Comp={Bg} />
         return <></>
     }
     document.title = page.title;
