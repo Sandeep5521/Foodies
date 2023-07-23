@@ -50,7 +50,7 @@ const Category = ({ parent }) => {
     }
 
     return (
-        <div className="h-fit bg-gray-200 md:bg-gray-100 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0  place-items-center py-10 md:gap-y-10">
+        <div className="h-fit bg-gray-200 md:bg-gray-100 dark:bg-black grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0  place-items-center py-10 md:gap-y-10">
             <Comp />
         </div>
     )

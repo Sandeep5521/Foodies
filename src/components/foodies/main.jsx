@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Example from "./nav.js";
 import Category from "./category.jsx";
 import Footer from "./footer.jsx";
@@ -9,6 +9,7 @@ import Recipe from "./recipe.jsx";
 import Home from "./home.jsx";
 import Login from "./login.jsx";
 import Register from "./register.jsx";
+import Mode from "./theme.jsx";
 
 const Main = ({ Type }) => {
     const [page, setPage] = useState({
@@ -56,18 +57,24 @@ const Main = ({ Type }) => {
         return <Home parent={func} />
     }
 
+    const mode = () => {
+        let theme = document.getElementById('theme');
+        theme.classList.toggle('dark');
+    }
+
     const Body = () => {
         if (page.type !== 'Search' && page.type !== 'Login' && page.type !== 'Register') return <Banner Comp={Bg} />
         return <></>
     }
     document.title = page.title;
     return (
-        <>
+        <div className="" id="theme">
             <Example parent={view} />
             <Body />
             <Set />
             <Footer parent={view} />
-        </>
+            <Mode parent={mode} />
+        </div>
     )
 };
 

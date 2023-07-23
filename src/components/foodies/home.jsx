@@ -29,7 +29,7 @@ const Home = ({ parent }) => {
     }, 4000);
 
     return (
-        <div className='bg-gray-200 md:bg-gray-100'>
+        <div className='bg-gray-200 md:bg-gray-100 dark:bg-black'>
             <section className="w-full flex justify-center">
                 <span className="hover:scale-105 cursor-pointer" id="link">
                     <div
@@ -49,7 +49,7 @@ const Home = ({ parent }) => {
                 <div id='bg' className={"h-60 sm:h-96 bg-cover"}></div >
                 <div className="space-y-[30rem] sm:-space-y-4" id="hid">
                     <div className="space-y-10 sm:-space-y-3">
-                        <div className="text-4xl sm:text-5xl text-center">Everyday Specials</div>
+                        <div className="text-4xl sm:text-5xl text-center dark:text-white">Everyday Specials</div>
                         <div className="flex flex-col sm:flex-row space-y-10 sm:space-y-0 sm:space-x-5 h-96 sm:justify-center items-center">
                             <div className=" bg-white w-72 rounded-xl shadow-xl h-fit hover:scale-105" onClick={() => parent({
                                 type: 'Product',
@@ -81,7 +81,7 @@ const Home = ({ parent }) => {
                         </div>
                     </div>
                     <div className="space-y-10 sm:-space-y-4 h-fit">
-                        <div className="text-4xl sm:text-5xl text-center">Explore Categories</div>
+                        <div className="text-4xl sm:text-5xl text-center dark:text-white">Explore Categories</div>
                         <div className="flex flex-col sm:flex-row space-y-10 sm:space-y-0 sm:space-x-5 h-96 sm:justify-center items-center">
                             <div className=" bg-white w-72 rounded-xl shadow-xl h-fit hover:scale-105" onClick={() => parent({
                                 type: 'Sub',

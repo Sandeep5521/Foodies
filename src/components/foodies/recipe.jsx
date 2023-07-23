@@ -55,7 +55,7 @@ const Recipe = ({ meal }) => {
         })
     }
     return (
-        <section className="flex justify-center bg-gray-200 md:bg-gray-100 py-1">
+        <section className="flex dark:bg-black justify-center bg-gray-200 md:bg-gray-100 py-1">
             <div className="h-fit space-y-6 -my-10 sm:space-y-8 px-5 sm:px-12 bg-white w-[22rem] sm:w-[50rem] rounded-lg shadow-xl py-6 sm:py-8">
                 {/* <div id="rname" className="text-center text-3xl h-fit font-semibold sm:text-5xl">{data.strMeal}</div> */}
                 {/* <div className="font-['Freestyle_Script'] text-2xl text-center sm:text-3xl">" Good food is the foundation of genuine happiness"</div> */}

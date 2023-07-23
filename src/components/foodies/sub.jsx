@@ -71,10 +71,10 @@ const Sub = ({ parent, title }) => {
 
     return (
         <>
-            <div className="h-fit bg-gray-200 md:bg-gray-100 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0  place-items-center py-10 md:gap-y-10">
+            <div className="h-fit dark:bg-black bg-gray-200 md:bg-gray-100 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0  place-items-center py-10 md:gap-y-10">
                 <Comp />
             </div>
-            <div className="pb-[2%] flex bg-gray-200 md:bg-gray-100 text-lg items-center place-content-center gap-8">
+            <div className="pb-[2%] flex dark:bg-black bg-gray-200 md:bg-gray-100 text-lg items-center place-content-center gap-8">
                 <IconButton
                     size="sm"
                     variant="outlined"
@@ -83,9 +83,9 @@ const Sub = ({ parent, title }) => {
                     onClick={prev}
                     disabled={active === 1}
                 >
-                    <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" />
+                    <ArrowLeftIcon strokeWidth={2} className="h-4 w-4 dark:text-white" />
                 </IconButton>
-                <Typography color="gray" className="font-normal">
+                <Typography color="gray" className="font-normal dark:text-white">
                     Page <strong className="text-blue-gray-900">{active}</strong> of{" "}
                     <strong className="text-blue-gray-900">{(data.meals) ? Math.ceil(data.meals.length / 12) : ''}</strong>
                 </Typography>
@@ -97,7 +97,7 @@ const Sub = ({ parent, title }) => {
                     onClick={next}
                     disabled={active === 10}
                 >
-                    <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
+                    <ArrowRightIcon strokeWidth={2} className="h-4 w-4 dark:text-white" />
                 </IconButton>
             </div>
         </>
