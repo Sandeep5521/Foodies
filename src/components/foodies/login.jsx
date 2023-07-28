@@ -23,7 +23,7 @@ export default function Login({ parent }) {
                 </CardHeader>
                 <CardBody className="flex flex-col gap-4 -mt-7">
                     <div className="relative">
-                        <input type="text" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 block w-full p-2.5 focus:bg-white focus:outline-none focus:border-red-500 peer" placeholder="" required />
+                        <input type="email" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 block w-full p-2.5 focus:bg-white focus:outline-none focus:border-red-500 peer" placeholder="" required />
 
                         <label htmlFor="first_name" className="absolute cursor-text text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-0 origin-[0] bg-gray-50 peer-focus:bg-white px-2 peer-focus:px-2 peer-focus:text-red-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Email</label>
 

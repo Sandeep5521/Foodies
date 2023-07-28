@@ -17,14 +17,14 @@ const Category = ({ parent }) => {
         }
     })
 
-    if (isLoading) return <div className='h-96 flex items-center justify-center'><Spinner color='red' className="h-20 w-20" /></div>
+    if (isLoading) return (<div className='h-96 flex items-center justify-center'><Spinner color='red' className="h-20 w-20" /></div>);
 
     if (error) return 'An error has occurred: ' + error.message
     console.log(data);
     const Comp = () => {
         if (!data.categories) return <></>
         return data.categories.map((cur) => {
-            return <Card key={cur.idCategory} className="mt-6 w-[90%] p-4 hover:scale-105 cursor-pointer" onClick={() => parent({
+            return <Card key={cur.idCategory} className="mt-6 w-[90%] p-4 hover:scale-105 cursor-pointer dark:bg-opacity-20" onClick={() => parent({
                 type: 'Sub',
                 title: cur.strCategory
             })}>
@@ -32,7 +32,7 @@ const Category = ({ parent }) => {
                     <img className="rounded-xl" src={cur.strCategoryThumb} alt="img-blur-shadow" layout="fill" />
                 </CardHeader>
                 <CardBody className="mt-[20%] text-center">
-                    <Typography variant="h5" color="blue-gray" className="mb-2">
+                    <Typography variant="h5" color="blue-gray" className="mb-2 dark:text-white">
                         {cur.strCategory}
                     </Typography>
                 </CardBody>

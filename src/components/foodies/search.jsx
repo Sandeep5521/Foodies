@@ -47,7 +47,7 @@ const Search = ({ parent }) => {
                 <div className="text-center text-4xl md:text-6xl font-['Brush_Script_MT']">Search by ingrediant</div>
             </div>
             <div className="flex justify-center xl:space-x-2 space-x-1">
-                <input type="text" className="rounded-full focus:outline-none text-black text-lg px-5 w-60 h-12 my-1 pr-5 shadow-md sm:w-72"
+                <input type="text" className="rounded-full focus:outline-none text-black dark:text-white dark:bg-opacity-90 dark:bg-black text-lg px-5 w-60 h-12 my-1 pr-5 shadow-md sm:w-72"
                     placeholder="Enter an ingrediant" id="recipe" onKeyDown={(event) => {
                         if (event.key == 'Enter') setIng(event.target.value);
                     }} />
@@ -70,7 +70,7 @@ const Search = ({ parent }) => {
                 <div className='text-3xl bg-gray-200 dark:bg-black dark:text-white md:bg-gray-100 text-center pt-10'>Search Results for "{ing}"</div>
                 <div className="h-fit bg-gray-200 dark:bg-black md:bg-gray-100 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0  place-items-center py-10 md:gap-y-10">
                     {li.map((cur) => {
-                        return <Card key={cur.idMeal} className="mt-6 h-fit w-[90%] p-4 hover:scale-105 cursor-pointer" onClick={() => parent({
+                        return <Card key={cur.idMeal} className="mt-6 h-fit w-[90%] p-4 hover:scale-105 cursor-pointer dark:bg-opacity-20" onClick={() => parent({
                             type: 'Product',
                             title: cur.strMeal
                         })}>
@@ -78,7 +78,7 @@ const Search = ({ parent }) => {
                                 <img className="rounded-xl shadow-xl" src={cur.strMealThumb} alt="img-blur-shadow" layout="fill" />
                             </CardHeader>
                             <CardBody className="pt-[58%] text-center">
-                                <Typography variant="h5" color="blue-gray" className="mb-2">
+                                <Typography variant="h5" color="blue-gray" className="mb-2 dark:text-white">
                                     {cur.strMeal}
                                 </Typography>
                             </CardBody>

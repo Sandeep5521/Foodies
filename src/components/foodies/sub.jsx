@@ -44,7 +44,7 @@ const Sub = ({ parent, title }) => {
         if (active * 12 > data.length) list = list.slice((active - 1) * 12, data.length)
         else list = list.slice((active - 1) * 12, active * 12)
         return list.map((cur) => {
-            return <Card key={cur.idMeal} className="mt-6 h-fit w-[90%] p-4 hover:scale-105 cursor-pointer" onClick={() => parent({
+            return <Card key={cur.idMeal} className="mt-6 h-fit w-[90%] p-4 hover:scale-105 cursor-pointer dark:bg-opacity-20" onClick={() => parent({
                 type: 'Product',
                 title: cur.strMeal
             })}>
@@ -52,7 +52,7 @@ const Sub = ({ parent, title }) => {
                     <img className="rounded-xl shadow-xl" src={cur.strMealThumb} alt="img-blur-shadow" layout="fill" />
                 </CardHeader>
                 <CardBody className="pt-[58%] text-center">
-                    <Typography variant="h5" color="blue-gray" className="mb-2">
+                    <Typography variant="h5" color="blue-gray" className="mb-2 dark:text-white">
                         {cur.strMeal}
                     </Typography>
                 </CardBody>
