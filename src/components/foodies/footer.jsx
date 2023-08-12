@@ -8,7 +8,7 @@ const Footer = ({ parent }) => {
                     <NavLink to={'/'}>Foodies</NavLink>
                 </div>
 
-                <p className="mx-auto selection:bg-red-300 selection:text-black mt-6 max-w-md text-center leading-relaxed text-gray-500">
+                <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500">
                     Discover new flavors and culinary delights with our extensive collection of recipes, cooking tips, and food-related articles. Join our community of food lovers today!
                 </p>
 

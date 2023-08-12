@@ -4,13 +4,11 @@ import slogo from '../../ingrediant/icons8-search.bf042472.bf042472.svg'
 import logo from '../../ingrediant/Cooking-Recipe-PNG-Download-Image.00d37d13.png'
 import { useState } from 'react'
 import {
-    Card,
-    CardHeader,
-    CardBody,
     Typography,
     IconButton
 } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+import Label from './card'
 
 const Search = ({ parent }) => {
     const [ing, setIng] = useState('bread');
@@ -49,12 +47,12 @@ const Search = ({ parent }) => {
             <div className="flex justify-center xl:space-x-2 space-x-1">
                 <input type="text" className="rounded-full focus:outline-none text-black dark:text-white dark:bg-opacity-90 dark:bg-black text-lg px-5 w-60 h-12 my-1 pr-5 shadow-md sm:w-72"
                     placeholder="Enter an ingrediant" id="recipe" onKeyDown={(event) => {
-                        if (event.key == 'Enter') setIng(event.target.value);
+                        if (event.key === 'Enter') setIng(event.target.value);
                     }} />
                 <button
                     className="bg-orange-500 h-14 text-white w-14 flex justify-center py-3 rounded-full text-xl hover:bg-orange-600 hover:scale-110"
                     onClick={() => setIng(document.getElementById('recipe').value)}>
-                    <img src={slogo} className="h-8" />
+                    <img src={slogo} alt='Sorry' className="h-8" />
                 </button>
             </div>
         </div>
@@ -69,21 +67,7 @@ const Search = ({ parent }) => {
             <>
                 <div className='text-3xl bg-gray-200 dark:bg-black dark:text-white md:bg-gray-100 text-center pt-10'>Search Results for "{ing}"</div>
                 <div className="h-fit bg-gray-200 dark:bg-black md:bg-gray-100 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0  place-items-center py-10 md:gap-y-10">
-                    {li.map((cur) => {
-                        return <Card key={cur.idMeal} className="mt-6 h-fit w-[90%] p-4 hover:scale-105 cursor-pointer dark:bg-opacity-20" onClick={() => parent({
-                            type: 'Product',
-                            title: cur.strMeal
-                        })}>
-                            <CardHeader color="blue-gray" className="relative h-52 -my-10">
-                                <img className="rounded-xl shadow-xl" src={cur.strMealThumb} alt="img-blur-shadow" layout="fill" />
-                            </CardHeader>
-                            <CardBody className="pt-[58%] text-center">
-                                <Typography variant="h5" color="blue-gray" className="mb-2 dark:text-white">
-                                    {cur.strMeal}
-                                </Typography>
-                            </CardBody>
-                        </Card >
-                    })}
+                    {li.map((cur) => <Label title={cur.strMeal} type={'Product'} thumb={cur.strMealThumb} />)}
                 </div>
                 <div className="pb-[2%] flex bg-gray-200 dark:bg-black md:bg-gray-100 text-lg items-center place-content-center gap-8">
                     <IconButton

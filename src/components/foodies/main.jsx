@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import Example from "./nav.js";
 import Category from "./category.jsx";
 import Footer from "./footer.jsx";
@@ -11,6 +11,8 @@ import Login from "./login.jsx";
 import Register from "./register.jsx";
 import Mode from "./theme.jsx";
 
+const Parent = createContext();
+
 const Main = ({ Type }) => {
     const [page, setPage] = useState({
         type: Type,
@@ -18,11 +20,12 @@ const Main = ({ Type }) => {
     })
 
     const view = (str) => {
+        console.log(str);
         setPage((val) => {
             return {
                 ...val,
-                type: str,
-                title: str
+                type: str.type,
+                title: str.title
             }
         })
     }
@@ -68,14 +71,17 @@ const Main = ({ Type }) => {
     }
     document.title = page.title;
     return (
-        <div className="" id="theme">
-            <Example parent={view} />
-            <Body />
-            <Set />
-            <Footer parent={view} />
-            <Mode parent={mode} />
+        <div className="selection:bg-red-300 selection:text-black" id="theme">
+            <Parent.Provider value={view}>
+                <Example parent={view} />
+                <Body />
+                <Set />
+                <Footer parent={view} />
+                <Mode parent={mode} />
+            </Parent.Provider>
         </div>
     )
 };
 
 export default Main;
+export { Parent };

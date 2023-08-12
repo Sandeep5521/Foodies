@@ -2,14 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import { Spinner } from "@material-tailwind/react";
 import { useState } from 'react';
 import {
-    Card,
-    CardHeader,
-    CardBody,
     Typography,
     IconButton
 } from "@material-tailwind/react";
 import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
-
+import Label from './card';
 
 const Sub = ({ parent, title }) => {
     const [active, setActive] = useState(1);
@@ -43,30 +40,7 @@ const Sub = ({ parent, title }) => {
         console.log(data);
         if (active * 12 > data.length) list = list.slice((active - 1) * 12, data.length)
         else list = list.slice((active - 1) * 12, active * 12)
-        return list.map((cur) => {
-            return <Card key={cur.idMeal} className="mt-6 h-fit w-[90%] p-4 hover:scale-105 cursor-pointer dark:bg-opacity-20" onClick={() => parent({
-                type: 'Product',
-                title: cur.strMeal
-            })}>
-                <CardHeader color="blue-gray" className="relative h-52 -my-10">
-                    <img className="rounded-xl shadow-xl" src={cur.strMealThumb} alt="img-blur-shadow" layout="fill" />
-                </CardHeader>
-                <CardBody className="pt-[58%] text-center">
-                    <Typography variant="h5" color="blue-gray" className="mb-2 dark:text-white">
-                        {cur.strMeal}
-                    </Typography>
-                </CardBody>
-            </Card >
-            // return <div key={cur.idMeal} className="w-fit bg-white rounded shadow-xl hover:scale-110 h-fit flex justify-center">
-            //     <div className="space-y-2 cursor-pointer" onClick={() => parent({
-            //         type: 'Product',
-            //         title: cur.strMeal
-            //     })}>
-            //         <div className="w-60"><img src={cur.strMealThumb} alt="" /></div>
-            //         <div className="w-60 text-2xl text-center py-4">{cur.strMeal}</div>
-            //     </div>
-            // </div>
-        })
+        return list.map((cur) => <Label key={cur.idMeal} title={cur.strMeal} type={'Product'} thumb={cur.strMealThumb} />)
     }
 
     return (

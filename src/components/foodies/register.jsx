@@ -65,7 +65,10 @@ export default function Register({ parent }) {
                             variant="small"
                             color="blue"
                             className="ml-1 font-bold text-red-400 hover:text-red-500"
-                            onClick={() => parent('Login')}
+                            onClick={() => parent({
+                                type: 'Login',
+                                title: 'Login'
+                            })}
                         >
                             <NavLink to={'/login'}>Sign in</NavLink>
                         </Typography>

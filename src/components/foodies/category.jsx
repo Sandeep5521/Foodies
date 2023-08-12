@@ -1,11 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { Spinner } from "@material-tailwind/react";
-import {
-    Card,
-    CardHeader,
-    CardBody,
-    Typography
-} from "@material-tailwind/react";
+import Label from './card.jsx';
 
 const Category = ({ parent }) => {
     const { isLoading, error, data } = useQuery({
@@ -24,19 +19,7 @@ const Category = ({ parent }) => {
     const Comp = () => {
         if (!data.categories) return <></>
         return data.categories.map((cur) => {
-            return <Card key={cur.idCategory} className="mt-6 w-[90%] p-4 hover:scale-105 cursor-pointer dark:bg-opacity-20" onClick={() => parent({
-                type: 'Sub',
-                title: cur.strCategory
-            })}>
-                <CardHeader color="blue-gray" className="relative h-52 -my-10 flex justify-center">
-                    <img className="rounded-xl" src={cur.strCategoryThumb} alt="img-blur-shadow" layout="fill" />
-                </CardHeader>
-                <CardBody className="mt-[20%] text-center">
-                    <Typography variant="h5" color="blue-gray" className="mb-2 dark:text-white">
-                        {cur.strCategory}
-                    </Typography>
-                </CardBody>
-            </Card >
+            return <Label type={'Sub'} title={cur.strCategory} thumb={cur.strCategoryThumb} />
             // return <div key={cur.idCategory} className="w-fit bg-white hover:scale-110 h-fit flex justify-center">
             //     <div className="space-y-2 cursor-pointer" onClick={() => parent({
             //         type: 'Sub',

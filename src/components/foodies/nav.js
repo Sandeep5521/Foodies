@@ -30,7 +30,10 @@ export default function Example({ parent }) {
           isActive ? "flex items-center text-red-500" : "flex items-center"
         } onClick={() => {
           if (openNav) setOpenNav(!openNav)
-          parent('Home')
+          parent({
+            type: 'Home',
+            title: 'Foodies'
+          })
         }}>Home</NavLink>
       </Typography>
       <Typography
@@ -43,7 +46,10 @@ export default function Example({ parent }) {
           isActive ? "flex items-center text-red-500" : "flex items-center"
         } onClick={() => {
           if (openNav) setOpenNav(!openNav)
-          parent('Categories')
+          parent({
+            type: 'Categories',
+            title: 'Categories'
+          })
         }}>Categories</NavLink>
       </Typography>
       <Typography
@@ -56,7 +62,10 @@ export default function Example({ parent }) {
           isActive ? "flex items-center text-red-500" : "flex items-center"
         } onClick={() => {
           if (openNav) setOpenNav(!openNav)
-          parent('Search')
+          parent({
+            type: 'Search',
+            title: 'Search'
+          })
         }}>Search</NavLink>
       </Typography>
       {/* <Typography
@@ -79,7 +88,7 @@ export default function Example({ parent }) {
           <Typography
             className="mr-4 cursor-pointer py-1.5 font-semibold text-2xl md:text-3xl text-red-500" onClick={() => parent('Home')}
           >
-            <NavLink to={'/'}><div className="flex place-content-center space-x-1"><img src="icons8-cookie-96.png" className="h-6 my-1 md:h-8" /><span>Foodies</span></div></NavLink>
+            <NavLink to={'/'}><div className="flex place-content-center space-x-1"><img src="icons8-cookie-96.png" alt="" className="h-6 my-1 md:h-8" /><span>Foodies</span></div></NavLink>
           </Typography>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
@@ -89,7 +98,10 @@ export default function Example({ parent }) {
               className="hidden bg-red-400 lg:inline-block"
               onClick={() => {
                 if (openNav) setOpenNav(!openNav)
-                parent('Login');
+                parent({
+                  type: 'Login',
+                  title: 'Login'
+                })
               }}
             >
               <span><NavLink to={'/login'}>Sign in</NavLink></span>
