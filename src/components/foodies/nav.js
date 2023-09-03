@@ -152,7 +152,10 @@ export default function Example({ parent }) {
           {navList}
           <Button variant="gradient" size="sm" fullWidth className="mb-2 bg-red-400" onClick={() => {
             if (openNav) setOpenNav(!openNav)
-            parent('Login');
+            parent({
+              type: 'Login',
+              title: 'Login'
+            });
           }}>
             <span><NavLink to={'/login'}>Sign in</NavLink></span>
           </Button>
